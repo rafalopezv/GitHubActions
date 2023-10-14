@@ -1,4 +1,4 @@
-name: run forest gump
+name: run forest gump please
 
 on:
   workflow_dispatch:
@@ -20,9 +20,9 @@ jobs:
 
     - name: Install dependencies
       run: |
-        Rscript -e "install.packages(c('lubridate', 'tidyverse', 'googlesheets4'))"
+        Rscript -e "install.packages('googlesheets4')"
 
-    - name: Run R script
+    - name: Dale
       run: Rscript push.R
       env:
         GDRIVE_PAT: ${{ secrets.GSHEETS_AUTO }}
