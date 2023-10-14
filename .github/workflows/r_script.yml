@@ -1,4 +1,4 @@
-name: Run R Script
+name: Run R Script two
 
 on:
   workflow_dispatch:
