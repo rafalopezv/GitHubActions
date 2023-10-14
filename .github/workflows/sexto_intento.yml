@@ -1,0 +1,31 @@
+name: hope
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '* * * * *'  # This runs the workflow every minute
+
+jobs:
+  run_r_script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: '4.1.1'
+        
+    - name: Clear cache
+      run: rm -rf ${{ runner.workspace }}/Library
+
+    - name: Install dependencies
+      run: |
+        Rscript -e "install.packages('googlesheets4')"
+
+    - name: Dale
+      run: Rscript push.R
+      env:
+        GDRIVE_PAT: ${{ secrets.GSHEETS_AUTO }}
