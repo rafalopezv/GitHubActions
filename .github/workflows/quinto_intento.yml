@@ -1,4 +1,4 @@
-name: run forest gump please
+name: last for today
 
 on:
   workflow_dispatch:
@@ -21,11 +21,11 @@ jobs:
     - name: Clear cache
       run: rm -rf ${{ runner.workspace }}/Library
 
-    - name: Install dependencies
-      run: |
-        Rscript -e "install.packages('googlesheets4')"
+    # - name: Install dependencies
+    #   run: |
+    #     Rscript -e "install.packages('googlesheets4')"
 
     - name: Dale
-      run: Rscript push.R
-      env:
-        GDRIVE_PAT: ${{ secrets.GSHEETS_AUTO }}
+      run: Rscript prueba.R
+      # env:
+      #   GDRIVE_PAT: ${{ secrets.GSHEETS_AUTO }}
